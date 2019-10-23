@@ -48,5 +48,23 @@ con.connect(function(err) {
   con.query(sql3, [values3], function (err, result) {
     if (err) throw err;
     console.log("Number of records inserted: " + result.affectedRows);
+
+    // Get Inserted ID
+    // Note: To be able to get the inserted id, only one row can be inserted.
+    console.log("1 record inserted, ID: " + result.insertId);
   });
 });
+
+/**
+* Note: The Result Object
+* {
+*  fieldCount: 0,
+*  affectedRows: 14,
+*  insertId: 0,
+*  serverStatus: 2,
+*  warningCount: 0,
+*  message: '\'Records:14  Duplicated: 0  Warnings: 0',
+*  protocol41: true,
+*  changedRows: 0
+* }
+*/
